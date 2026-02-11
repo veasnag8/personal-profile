@@ -2,1585 +2,785 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>🎄 Premium Persona Profile | Christmas Edition</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Professional Persona Profile with Christmas Theme">
-  
-  <!-- Bot Configuration -->
-  <meta name="telegram:bot" content="@GroupManagementCVABot">
-  <meta name="telegram:bot_token" content="7821831927:AAHyuidarem0J8sUYq9HKqJ7CxzSf7MZe3g">
-  
-  <!-- Bootstrap 5 -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  
-  <!-- Bootstrap Icons -->
+  <meta name="description" content="Premium personal profile with Chinese New Year 2026 design.">
+  <title>Premium Persona Profile | Chinese New Year 2026</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Noto+Serif+SC:wght@600;700&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
-  
-  <!-- Telegram Web App SDK -->
-  <script src="https://telegram.org/js/telegram-web-app.js"></script>
-  
+
   <style>
     :root {
-      --primary-color: #0088cc;
-      --secondary-color: #6c757d;
-      --accent-color: #0dcaf0;
-      --light-bg: #f8f9fa;
-      --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-      --border-radius: 12px;
-      --gold-primary: #FFD700;
-      --gold-secondary: #D4AF37;
-      --gold-dark: #B8860B;
-      --gold-light: #FFF8DC;
-      --christmas-red: #C41E3A;
-      --christmas-green: #2E8B57;
-      --telegram-blue: #0088cc;
-      --vip-gradient: linear-gradient(135deg, #FFD700, #D4AF37, #FFC107, #B8860B);
-      --christmas-gradient: linear-gradient(135deg, #C41E3A 0%, #2E8B57 50%, #FFD700 100%);
-      --telegram-gradient: linear-gradient(135deg, #0088cc, #00aced);
+      --bg-main: #fff7ec;
+      --bg-soft: #ffe9cc;
+      --panel: rgba(255, 255, 255, 0.9);
+      --text-main: #2f1a13;
+      --text-soft: #745645;
+      --cny-red: #af211c;
+      --cny-red-deep: #7f1714;
+      --gold: #e7b552;
+      --gold-soft: #f7dc9f;
+      --jade: #1f6a52;
+      --line: rgba(175, 33, 28, 0.14);
+      --shadow-main: 0 20px 45px rgba(127, 23, 20, 0.14);
+      --shadow-hover: 0 16px 30px rgba(175, 33, 28, 0.2);
+      --radius-xl: 26px;
+      --radius-lg: 20px;
+      --radius-md: 14px;
+      --radius-sm: 10px;
     }
 
     * {
-      margin: 0;
-      padding: 0;
       box-sizing: border-box;
     }
 
+    html,
     body {
-      background: linear-gradient(135deg, #f0f8ff 0%, #e6f7ff 100%);
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      line-height: 1.6;
-      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
       min-height: 100vh;
+      font-family: "Manrope", sans-serif;
+      color: var(--text-main);
+      background:
+        radial-gradient(circle at 10% 18%, rgba(231, 181, 82, 0.2), transparent 40%),
+        radial-gradient(circle at 90% 10%, rgba(175, 33, 28, 0.16), transparent 42%),
+        linear-gradient(160deg, var(--bg-main) 0%, var(--bg-soft) 48%, #ffe2be 100%);
       overflow-x: hidden;
       position: relative;
     }
 
-    /* Telegram Loading Screen */
-    .telegram-loading {
+    body::before {
+      content: "";
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: var(--telegram-gradient);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      z-index: 9999;
-      transition: opacity 0.5s ease;
-    }
-
-    .telegram-loading.hidden {
-      opacity: 0;
+      inset: 0;
       pointer-events: none;
+      background-image:
+        linear-gradient(rgba(175, 33, 28, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(175, 33, 28, 0.05) 1px, transparent 1px);
+      background-size: 48px 48px;
+      opacity: 0.3;
+      z-index: 0;
     }
 
-    .telegram-logo {
-      width: 80px;
-      height: 80px;
-      background: white;
-      border-radius: 50%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-bottom: 20px;
-      animation: pulse 2s infinite;
-    }
-
-    .telegram-logo i {
-      font-size: 40px;
-      color: var(--telegram-blue);
-    }
-
-    .loading-text {
-      color: white;
-      font-size: 1.2rem;
-      margin-top: 20px;
-      text-align: center;
-    }
-
-    /* Launch Button for Non-Telegram Browsers */
-    .launch-container {
+    .floating-lanterns {
       position: fixed;
-      bottom: 20px;
-      right: 20px;
-      z-index: 1000;
-      display: none;
-    }
-
-    .launch-btn {
-      background: var(--telegram-gradient);
-      color: white;
-      padding: 15px 30px;
-      border-radius: 30px;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 1.1rem;
-      box-shadow: 0 6px 20px rgba(0, 136, 204, 0.4);
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      transition: all 0.3s ease;
-      border: none;
-      cursor: pointer;
-    }
-
-    .launch-btn:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(0, 136, 204, 0.6);
-    }
-
-    /* Snow Container */
-    .snow-container {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      inset: 0;
+      z-index: 0;
       pointer-events: none;
-      z-index: 100;
       overflow: hidden;
     }
 
-    .snowflake {
+    .lantern {
       position: absolute;
-      background: white;
-      border-radius: 50%;
-      opacity: 0.8;
-      animation: fall linear infinite;
+      width: 62px;
+      aspect-ratio: 1 / 1.25;
+      border-radius: 50% 50% 44% 44%;
+      background: linear-gradient(180deg, #cd332b 0%, var(--cny-red) 62%, var(--cny-red-deep) 100%);
+      border: 2px solid rgba(247, 220, 159, 0.8);
+      box-shadow: 0 0 24px rgba(231, 181, 82, 0.32);
+      animation: lanternFloat linear infinite;
+      opacity: 0.45;
     }
 
-    .snowflake.small {
-      width: 6px;
-      height: 6px;
-      box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
-    }
-
-    .snowflake.medium {
-      width: 10px;
-      height: 10px;
-      box-shadow: 0 0 15px rgba(255, 255, 255, 0.9);
-    }
-
-    .snowflake.large {
-      width: 14px;
-      height: 14px;
-      box-shadow: 0 0 20px rgba(255, 255, 255, 1);
-    }
-
-    @keyframes fall {
-      0% {
-        transform: translateY(-100px) rotate(0deg);
-        opacity: 1;
-      }
-      100% {
-        transform: translateY(100vh) rotate(360deg);
-        opacity: 0;
-      }
-    }
-
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.1); }
-    }
-
-    /* Christmas Lights */
-    .christmas-lights {
+    .lantern::before,
+    .lantern::after {
+      content: "";
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 20px;
-      overflow: hidden;
-      z-index: 101;
+      left: 50%;
+      transform: translateX(-50%);
     }
 
-    .light {
-      position: absolute;
-      width: 15px;
+    .lantern::before {
+      top: -10px;
+      width: 20px;
+      height: 8px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #d59f3a, #f4d48c, #d59f3a);
+    }
+
+    .lantern::after {
+      bottom: -14px;
+      width: 3px;
       height: 15px;
-      border-radius: 50%;
-      animation: twinkle 1.5s infinite;
+      background: var(--gold);
+      box-shadow: 0 18px 0 0 var(--gold);
     }
 
-    @keyframes twinkle {
-      0%, 100% { opacity: 0.5; }
-      50% { opacity: 1; }
+    .lantern.l1 {
+      left: 7%;
+      top: 68%;
+      animation-duration: 18s;
+      animation-delay: 0s;
     }
 
-    /* Main Content */
-    .container {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 20px;
+    .lantern.l2 {
+      left: 28%;
+      top: 80%;
+      animation-duration: 23s;
+      animation-delay: 2s;
+      transform: scale(0.85);
+    }
+
+    .lantern.l3 {
+      right: 22%;
+      top: 75%;
+      animation-duration: 20s;
+      animation-delay: 1.5s;
+      transform: scale(0.92);
+    }
+
+    .lantern.l4 {
+      right: 8%;
+      top: 66%;
+      animation-duration: 26s;
+      animation-delay: 3s;
+      transform: scale(0.78);
+    }
+
+    @keyframes lanternFloat {
+      0% {
+        transform: translateY(0) translateX(0) rotate(0deg);
+      }
+
+      35% {
+        transform: translateY(-35vh) translateX(8px) rotate(2deg);
+      }
+
+      65% {
+        transform: translateY(-68vh) translateX(-10px) rotate(-2deg);
+      }
+
+      100% {
+        transform: translateY(-108vh) translateX(4px) rotate(1deg);
+      }
+    }
+
+    .page {
       position: relative;
       z-index: 1;
+      width: min(1140px, calc(100% - 2rem));
+      margin: clamp(1rem, 3vw, 2.2rem) auto 2.2rem;
+      display: grid;
+      gap: 1.1rem;
     }
 
-    /* Professional Card */
-    .professional-card {
-      background: white;
-      border-radius: var(--border-radius);
-      box-shadow: var(--card-shadow);
-      overflow: hidden;
-      margin-bottom: 24px;
-      border: 1px solid rgba(0, 0, 0, 0.05);
-      position: relative;
-    }
-
-    .card-header {
-      background: linear-gradient(135deg, var(--christmas-red), var(--christmas-green));
-      color: white;
-      padding: 2rem 1.5rem;
+    .hero {
+      background:
+        linear-gradient(125deg, rgba(255, 255, 255, 0.92), rgba(255, 246, 231, 0.94)),
+        linear-gradient(135deg, rgba(175, 33, 28, 0.07), rgba(231, 181, 82, 0.1));
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-main);
+      padding: clamp(1rem, 2.6vw, 2rem);
       position: relative;
       overflow: hidden;
     }
 
-    .card-header::before {
-      content: '';
+    .hero::before {
+      content: "";
       position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: linear-gradient(45deg, 
-        transparent 30%, 
-        rgba(255, 255, 255, 0.2) 50%, 
-        transparent 70%);
-      transform: rotate(45deg);
-      animation: headerShine 8s linear infinite;
-    }
-
-    /* Christmas Decorations */
-    .christmas-decoration {
-      position: absolute;
-      font-size: 2rem;
-      color: var(--gold-primary);
-      animation: float 6s ease-in-out infinite;
-    }
-
-    .decoration-left {
-      top: 20px;
-      left: 20px;
-    }
-
-    .decoration-right {
-      top: 20px;
-      right: 20px;
-      animation-delay: 1s;
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0) rotate(0deg); }
-      50% { transform: translateY(-10px) rotate(5deg); }
-    }
-
-    /* Avatar Container */
-    .avatar-container {
-      width: 140px;
-      height: 140px;
+      right: -72px;
+      top: -72px;
+      width: 220px;
+      aspect-ratio: 1;
       border-radius: 50%;
-      border: 5px solid rgba(255, 255, 255, 0.3);
-      overflow: hidden;
-      margin: 0 auto 1.5rem;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-      position: relative;
-      z-index: 2;
-      background: white;
-      padding: 5px;
+      background: radial-gradient(circle, rgba(231, 181, 82, 0.32), rgba(175, 33, 28, 0.09) 60%, transparent 70%);
+      pointer-events: none;
     }
 
-    .avatar-img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 50%;
-    }
-
-    .avatar-container::after {
-      content: '🎄';
-      position: absolute;
-      bottom: -5px;
-      right: -5px;
-      font-size: 2rem;
-      animation: spin 10s linear infinite;
-    }
-
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-
-    .verified-badge {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      background: rgba(255, 255, 255, 0.2);
-      backdrop-filter: blur(10px);
-      padding: 8px 16px;
-      border-radius: 20px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      z-index: 2;
-      border: 1px solid rgba(255, 255, 255, 0.3);
-    }
-
-    .persona-title {
-      font-size: 1.75rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-      position: relative;
-      z-index: 2;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-    }
-
-    .persona-subtitle {
-      font-size: 1.1rem;
-      opacity: 0.9;
-      margin-bottom: 1rem;
-      position: relative;
-      z-index: 2;
-    }
-
-    /* Christmas VIP Badge */
-    .christmas-vip-badge {
-      background: linear-gradient(135deg, var(--christmas-red), var(--gold-primary), var(--christmas-green));
-      color: white !important;
-      padding: 12px 25px;
-      border-radius: 30px;
-      font-weight: 900;
-      font-size: 1.2rem;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
+    .edition-pill {
       display: inline-flex;
       align-items: center;
-      gap: 12px;
-      box-shadow: 
-        0 8px 25px rgba(196, 30, 58, 0.3),
-        inset 0 1px 0 rgba(255, 255, 255, 0.5);
-      position: relative;
-      overflow: hidden;
-      border: 3px solid var(--gold-dark);
-      margin: 0.5rem 0;
-      animation: badgeGlow 3s ease-in-out infinite;
-      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+      gap: 0.5rem;
+      background: linear-gradient(90deg, var(--cny-red), #c73b2f, var(--cny-red));
+      color: #fff;
+      border-radius: 999px;
+      padding: 0.42rem 0.95rem;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      box-shadow: 0 8px 20px rgba(175, 33, 28, 0.3);
+      margin-bottom: 0.95rem;
     }
 
-    .christmas-vip-badge::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: linear-gradient(45deg, 
-        transparent 30%, 
-        rgba(255, 255, 255, 0.3) 50%, 
-        transparent 70%);
-      transform: rotate(45deg);
-      animation: badgeShine 5s linear infinite;
-    }
-
-    .vip-sparkle {
-      color: white;
-      text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
-      animation: sparkle 2s ease-in-out infinite;
-      position: relative;
-      z-index: 2;
-    }
-
-    /* Sections */
-    .section-title {
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: var(--christmas-red);
-      margin-bottom: 1.25rem;
-      padding-bottom: 0.75rem;
-      border-bottom: 2px solid rgba(46, 139, 87, 0.3);
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .section-title i {
-      font-size: 1.2rem;
-      color: var(--christmas-green);
-    }
-
-    /* Info Grid */
-    .info-grid {
+    .hero-grid {
       display: grid;
-      grid-template-columns: 1fr;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 1.1rem;
+    }
+
+    .avatar-frame {
+      width: clamp(92px, 11vw, 128px);
+      aspect-ratio: 1;
+      border-radius: 50%;
+      padding: 4px;
+      background: conic-gradient(from 0deg, #f6dc9d, var(--gold), #a52f25, var(--gold), #f6dc9d);
+      box-shadow: 0 12px 30px rgba(165, 47, 37, 0.23);
+      flex-shrink: 0;
+    }
+
+    .avatar {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid rgba(255, 255, 255, 0.8);
+      display: block;
+    }
+
+    .identity h1 {
+      margin: 0;
+      font-family: "Noto Serif SC", serif;
+      font-size: clamp(1.35rem, 2.6vw, 2.05rem);
+      line-height: 1.2;
+      letter-spacing: 0.01em;
+    }
+
+    .identity .role {
+      margin: 0.4rem 0;
+      font-size: clamp(0.94rem, 1.6vw, 1.08rem);
+      color: var(--text-soft);
+      font-weight: 600;
+    }
+
+    .identity .theme-note {
+      margin: 0;
+      color: var(--cny-red-deep);
+      font-weight: 600;
+      font-size: clamp(0.88rem, 1.4vw, 0.96rem);
+    }
+
+    .badges {
+      margin-top: 0.8rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .badge-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid rgba(175, 33, 28, 0.14);
+      border-radius: 999px;
+      padding: 0.34rem 0.68rem;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--cny-red-deep);
+      white-space: nowrap;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      min-width: 188px;
+    }
+
+    .action-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.62rem 0.95rem;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.88rem;
+      transition: transform 0.22s ease, box-shadow 0.22s ease;
+      border: 1px solid transparent;
+    }
+
+    .action-btn.primary {
+      background: linear-gradient(90deg, var(--cny-red-deep), var(--cny-red));
+      color: #fff;
+      box-shadow: 0 10px 22px rgba(175, 33, 28, 0.28);
+    }
+
+    .action-btn.secondary {
+      background: rgba(255, 255, 255, 0.88);
+      color: var(--cny-red-deep);
+      border-color: rgba(175, 33, 28, 0.2);
+    }
+
+    .action-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .premium-strip {
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--line);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .premium-item {
+      background: linear-gradient(90deg, rgba(231, 181, 82, 0.2), rgba(31, 106, 82, 0.12));
+      border: 1px solid rgba(31, 106, 82, 0.15);
+      border-radius: 999px;
+      padding: 0.35rem 0.74rem;
+      font-weight: 700;
+      font-size: 0.79rem;
+      color: var(--jade);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(12, minmax(0, 1fr));
       gap: 1rem;
     }
 
-    @media (min-width: 768px) {
-      .info-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
+    .panel {
+      grid-column: span 6;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-main);
+      padding: clamp(0.95rem, 2vw, 1.3rem);
+      backdrop-filter: blur(5px);
     }
 
-    .info-item {
-      background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
-      padding: 1.25rem;
-      border-radius: 10px;
-      transition: all 0.3s ease;
-      border: 1px solid rgba(0, 0, 0, 0.05);
-      position: relative;
-      overflow: hidden;
+    .panel.wide {
+      grid-column: 1 / -1;
     }
 
-    .info-item:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(46, 139, 87, 0.1);
-      border-color: rgba(46, 139, 87, 0.2);
-    }
-
-    .info-item::before {
-      content: '❄️';
-      position: absolute;
-      top: 5px;
-      right: 5px;
-      font-size: 1rem;
-      opacity: 0.3;
-    }
-
-    .info-label {
-      font-size: 0.85rem;
-      color: var(--secondary-color);
-      text-transform: uppercase;
-      font-weight: 600;
-      letter-spacing: 0.5px;
-      margin-bottom: 0.5rem;
+    .panel-title {
       display: flex;
       align-items: center;
-      gap: 8px;
-    }
-
-    .info-label i {
+      gap: 0.55rem;
       font-size: 1rem;
-      color: var(--christmas-red);
+      font-weight: 800;
+      margin: 0 0 0.95rem;
+      color: var(--cny-red-deep);
+      letter-spacing: 0.01em;
     }
 
-    .info-value {
-      font-size: 1.1rem;
-      font-weight: 500;
-      color: #222;
+    .panel-title i {
+      color: var(--cny-red);
     }
 
-    .christmas-value {
-      color: var(--christmas-red);
+    .rows {
+      display: grid;
+      gap: 0.72rem;
+    }
+
+    .row-item {
+      display: grid;
+      grid-template-columns: minmax(108px, 140px) 1fr;
+      gap: 0.7rem;
+      align-items: center;
+      padding: 0.62rem 0.68rem;
+      border-radius: var(--radius-sm);
+      background: rgba(255, 255, 255, 0.86);
+      border: 1px solid rgba(175, 33, 28, 0.08);
+    }
+
+    .key {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: var(--text-soft);
+      font-weight: 800;
+    }
+
+    .value {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-main);
+      overflow-wrap: anywhere;
+    }
+
+    .value a {
+      color: var(--cny-red);
+      text-decoration: none;
       font-weight: 700;
     }
 
-    /* Contact Links */
-    .contact-link {
-      color: var(--christmas-red);
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-weight: 500;
-      transition: all 0.2s ease;
-    }
-
-    .contact-link:hover {
-      color: #a51830;
+    .value a:hover {
       text-decoration: underline;
-      transform: translateX(5px);
     }
 
-    /* Skills */
-    .skill-category {
-      margin-bottom: 1.5rem;
+    .summary {
+      margin: 0;
+      font-size: 0.96rem;
+      line-height: 1.72;
+      color: #43281d;
     }
 
-    .category-title {
-      font-size: 0.95rem;
-      font-weight: 600;
-      color: var(--christmas-green);
-      margin-bottom: 0.75rem;
+    .skills-layout {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.95rem;
+    }
+
+    .skill-group {
+      border: 1px solid rgba(175, 33, 28, 0.12);
+      border-radius: var(--radius-md);
+      padding: 0.85rem;
+      background: rgba(255, 255, 255, 0.9);
+    }
+
+    .skill-group h4 {
+      margin: 0 0 0.68rem;
+      font-size: 0.88rem;
+      letter-spacing: 0.05em;
       text-transform: uppercase;
-      letter-spacing: 0.5px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
+      color: var(--jade);
     }
 
-    .skill-tags {
+    .chips {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
+      gap: 0.44rem;
     }
 
-    .skill-tag {
-      background: linear-gradient(135deg, #e7f1ff, #d4eaff);
-      color: var(--primary-color);
-      padding: 8px 16px;
-      border-radius: 20px;
-      font-size: 0.9rem;
-      font-weight: 500;
-      transition: all 0.2s ease;
-      border: 1px solid rgba(13, 110, 253, 0.1);
-      position: relative;
+    .chip {
+      padding: 0.34rem 0.62rem;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      background: linear-gradient(95deg, rgba(175, 33, 28, 0.08), rgba(231, 181, 82, 0.12));
+      border: 1px solid rgba(175, 33, 28, 0.12);
+      color: #592d20;
+      white-space: nowrap;
     }
 
-    .skill-tag:hover {
-      background: linear-gradient(135deg, var(--primary-color), #0a58ca);
-      color: white;
-      transform: translateY(-3px);
-      box-shadow: 0 5px 15px rgba(13, 110, 253, 0.2);
+    .focus-layout {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.85rem;
     }
 
-    .skill-tag.highlight {
-      background: linear-gradient(135deg, var(--christmas-red), #a51830);
-      color: white;
-      font-weight: 600;
+    .focus-card {
+      border-radius: var(--radius-md);
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.94), rgba(255, 244, 225, 0.95));
+      border: 1px solid rgba(175, 33, 28, 0.12);
+      padding: 0.88rem;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
-    .skill-tag.christmas {
-      background: linear-gradient(135deg, var(--christmas-green), #1f6d3f);
-      color: white;
-      font-weight: 600;
-      border: 1px solid rgba(46, 139, 87, 0.3);
+    .focus-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-hover);
     }
 
-    .skill-tag.gold {
-      background: linear-gradient(135deg, var(--gold-primary), var(--gold-secondary));
-      color: #000;
-      font-weight: 600;
-      border: 1px solid rgba(255, 215, 0, 0.3);
-    }
-
-    /* Experience Items */
-    .experience-item {
-      margin-bottom: 1.5rem;
-      padding: 1.25rem;
-      background: linear-gradient(135deg, #ffffff, #f8f9fa);
-      border-radius: 10px;
-      border-left: 4px solid var(--christmas-green);
-      transition: all 0.3s ease;
-      position: relative;
-    }
-
-    .experience-item::before {
-      content: '🎁';
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      font-size: 1.2rem;
-    }
-
-    .experience-item:hover {
-      transform: translateX(5px);
-      box-shadow: 0 5px 15px rgba(46, 139, 87, 0.1);
-    }
-
-    .experience-title {
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-      color: #222;
-      font-size: 1.1rem;
-      color: var(--christmas-red);
-    }
-
-    .experience-desc {
+    .focus-card h5 {
+      margin: 0 0 0.42rem;
       font-size: 0.95rem;
-      color: var(--secondary-color);
+      color: var(--cny-red-deep);
+    }
+
+    .focus-card p {
+      margin: 0;
+      font-size: 0.88rem;
+      color: #614736;
       line-height: 1.6;
     }
 
-    /* Badges */
-    .badge-container {
+    .footer {
+      background: linear-gradient(90deg, #87211b, #b82d24, #87211b);
+      color: #fff;
+      border-radius: var(--radius-lg);
+      padding: 0.92rem 1rem;
+      box-shadow: var(--shadow-main);
+      font-size: 0.84rem;
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 1rem;
-      justify-content: center;
-    }
-
-    .status-badge {
-      background: linear-gradient(135deg, var(--christmas-green), #1f6d3f);
-      color: white;
-      padding: 8px 20px;
-      border-radius: 20px;
-      font-size: 0.9rem;
-      font-weight: 600;
-    }
-
-    .security-badge {
-      background: linear-gradient(135deg, var(--christmas-red), #a51830);
-      color: white;
-      padding: 8px 20px;
-      border-radius: 20px;
-      font-size: 0.9rem;
-      font-weight: 600;
-    }
-
-    .gold-badge {
-      background: var(--vip-gradient);
-      color: #000;
-      padding: 8px 20px;
-      border-radius: 20px;
-      font-size: 0.9rem;
-      font-weight: 700;
-      border: 2px solid var(--gold-dark);
-    }
-
-    /* Footer */
-    .profile-footer {
-      text-align: center;
-      padding: 2rem;
-      background: linear-gradient(135deg, var(--christmas-green), #1f6d3f);
-      color: white;
-      font-size: 0.9rem;
-      position: relative;
-    }
-
-    .profile-footer::before {
-      content: '🎅';
-      position: absolute;
-      left: 20px;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 1.5rem;
-      animation: wave 2s infinite;
-    }
-
-    .profile-footer::after {
-      content: '🦌';
-      position: absolute;
-      right: 20px;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 1.5rem;
-      animation: wave 2s infinite 0.5s;
-    }
-
-    @keyframes wave {
-      0%, 100% { transform: translateY(-50%) rotate(0deg); }
-      25% { transform: translateY(-50%) rotate(-10deg); }
-      75% { transform: translateY(-50%) rotate(10deg); }
-    }
-
-    /* Premium Features */
-    .premium-features {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 15px;
-      justify-content: center;
-      margin: 2rem 0;
-      padding: 1.5rem;
-      background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(196, 30, 58, 0.1));
-      border-radius: 15px;
-      border: 1px solid rgba(255, 215, 0, 0.2);
-    }
-
-    .premium-feature {
-      display: flex;
+      justify-content: space-between;
+      gap: 0.6rem;
       align-items: center;
-      gap: 10px;
-      padding: 10px 20px;
-      background: rgba(255, 255, 255, 0.9);
-      border-radius: 25px;
-      font-weight: 500;
-      color: var(--christmas-red);
-      border: 1px solid rgba(255, 215, 0, 0.3);
-      transition: all 0.3s ease;
     }
 
-    .premium-feature:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 5px 15px rgba(196, 30, 58, 0.1);
+    .footer strong {
+      color: var(--gold-soft);
+      font-weight: 800;
     }
 
-    .premium-feature i {
-      color: var(--christmas-green);
-    }
-
-    /* Christmas Message */
-    .christmas-message {
-      text-align: center;
-      padding: 1rem;
-      background: linear-gradient(135deg, var(--christmas-red), var(--christmas-green));
-      color: white;
-      border-radius: 10px;
-      margin-bottom: 2rem;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .christmas-message::before {
-      content: '✨';
-      position: absolute;
-      font-size: 2rem;
-      opacity: 0.5;
-      animation: twinkle 2s infinite;
-    }
-
-    .christmas-message h4 {
-      margin: 0;
-      font-weight: 700;
-    }
-
-    /* Animations */
-    @keyframes headerShine {
-      0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
-      100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
-    }
-
-    @keyframes badgeGlow {
-      0%, 100% { 
-        box-shadow: 
-          0 8px 25px rgba(196, 30, 58, 0.3),
-          inset 0 1px 0 rgba(255, 255, 255, 0.5);
+    @media (max-width: 1024px) {
+      .hero-grid {
+        grid-template-columns: auto 1fr;
       }
-      50% { 
-        box-shadow: 
-          0 8px 35px rgba(196, 30, 58, 0.5),
-          0 0 25px rgba(255, 215, 0, 0.3),
-          inset 0 1px 0 rgba(255, 255, 255, 0.8);
+
+      .hero-actions {
+        grid-column: 1 / -1;
+        flex-direction: row;
+        min-width: 0;
+        flex-wrap: wrap;
+      }
+
+      .panel {
+        grid-column: 1 / -1;
       }
     }
 
-    @keyframes badgeShine {
-      0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
-      100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
-    }
+    @media (max-width: 780px) {
+      .page {
+        width: calc(100% - 1.3rem);
+      }
 
-    @keyframes sparkle {
-      0%, 100% { 
-        opacity: 1;
-        transform: scale(1) rotate(0deg);
+      .row-item {
+        grid-template-columns: 1fr;
+        gap: 0.28rem;
       }
-      50% { 
-        opacity: 0.6;
-        transform: scale(1.2) rotate(180deg);
-      }
-    }
 
-    /* Responsive Design */
-    @media (max-width: 768px) {
-      .christmas-vip-badge {
-        padding: 10px 20px;
-        font-size: 1rem;
-      }
-      
-      .avatar-container {
-        width: 120px;
-        height: 120px;
-      }
-      
-      .persona-title {
-        font-size: 1.5rem;
-      }
-      
-      .premium-features {
-        flex-direction: column;
-        align-items: center;
-      }
-      
-      .launch-container {
-        bottom: 10px;
-        right: 10px;
-      }
-      
-      .launch-btn {
-        padding: 12px 20px;
-        font-size: 1rem;
+      .skills-layout,
+      .focus-layout {
+        grid-template-columns: 1fr;
       }
     }
 
-    /* Telegram Button Styles */
-    .telegram-controls {
-      position: fixed;
-      top: 20px;
-      left: 20px;
-      z-index: 1000;
-      display: flex;
-      gap: 10px;
+    @media (max-width: 560px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .avatar-frame {
+        margin-inline: auto;
+      }
+
+      .badges {
+        justify-content: center;
+      }
+
+      .hero-actions {
+        justify-content: center;
+      }
+
+      .action-btn {
+        flex: 1;
+        min-width: 140px;
+      }
+
+      .premium-strip {
+        justify-content: center;
+      }
+
+      .footer {
+        justify-content: center;
+        text-align: center;
+      }
     }
 
-    .telegram-btn {
-      background: rgba(0, 136, 204, 0.9);
-      color: white;
-      padding: 10px 15px;
-      border-radius: 20px;
-      border: none;
-      cursor: pointer;
-      font-weight: 600;
-      display: flex;
-      align-items: center;
-      gap: 5px;
-      transition: all 0.3s ease;
-    }
-
-    .telegram-btn:hover {
-      background: rgba(0, 136, 204, 1);
-      transform: translateY(-2px);
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation: none !important;
+        transition: none !important;
+      }
     }
   </style>
 </head>
-
 <body>
-  <!-- Telegram Loading Screen -->
-  <div class="telegram-loading" id="telegramLoading">
-    <div class="telegram-logo">
-      <i class="bi bi-telegram"></i>
-    </div>
-    <div class="loading-text" id="loadingText">Loading Premium Profile...</div>
+  <div class="floating-lanterns" aria-hidden="true">
+    <div class="lantern l1"></div>
+    <div class="lantern l2"></div>
+    <div class="lantern l3"></div>
+    <div class="lantern l4"></div>
   </div>
 
-  <!-- Launch Button for Non-Telegram Browsers -->
-  <div class="launch-container" id="launchContainer">
-    <button class="launch-btn" id="launchBtn">
-      <i class="bi bi-telegram"></i>
-      Open in Telegram
-    </button>
-  </div>
-   <!-- Telegram Controls (Only in Telegram) -->
-  <div class="telegram-controls" id="telegramControls" style="display: none;">
-    <button class="telegram-btn" id="closeBtn">
-      <i class="bi bi-x-circle"></i> Close
-    </button>
-  </div>
-  <!-- Snow Effect -->
-  <div class="snow-container" id="snowContainer"></div>
-
-  <!-- Christmas Lights -->
-  <div class="christmas-lights" id="christmasLights"></div>
-
-  <!-- Main Content -->
-  <div class="container py-4">
-    
-    <!-- Christmas Message -->
-    <div class="christmas-message mb-4">
-      <h4>🎄 Merry Christmas & Happy New Year 2026! 🎅</h4>
-      <p class="mb-0">Wishing you joy, success, and prosperity in the coming year!</p>
-    </div>
-    
-    <!-- MAIN PROFILE CARD -->
-    <div class="professional-card">
-      
-      <!-- HEADER SECTION -->
-      <div class="card-header">
-        <div class="christmas-decoration decoration-left">🎄</div>
-        <div class="christmas-decoration decoration-right">🌟</div>
-        
-        <div class="verified-badge">
-          <i class="bi bi-patch-check-fill"></i> Verified Persona
+  <main class="page">
+    <section class="hero">
+      <span class="edition-pill"><i class="bi bi-stars"></i> Happy Chinese New Year 2026 Premium Edition</span>
+      <div class="hero-grid">
+        <div class="avatar-frame">
+          <img
+            class="avatar"
+            src="https://scontent.fpnh24-1.fna.fbcdn.net/v/t39.30808-1/600315289_855915820474368_5902287615914242872_n.jpg?stp=dst-jpg_s200x200_tt6&amp;_nc_cat=101&amp;ccb=1-7&amp;_nc_sid=fe59b0&amp;_nc_ohc=YQRcC-1ocnMQ7kNvwGX_0Ni&amp;_nc_oc=AdnUPTVpFPQRDkKOTv38bXPQWvY_C3gNKFAB-n7EIz7ha7xmEjjEVJDGeLob6zSxWQM&amp;_nc_zt=24&amp;_nc_ht=scontent.fpnh24-1.fna&amp;_nc_gid=MQbDeNYEjZci9lXBNGUq2A&amp;oh=00_Afv0mndltVt9RsYmSfPsxobPkWRt66_h9FtDwgQ2yJqLcA&amp;oe=6991BE63"
+            alt="Song Veasna profile image"
+          >
         </div>
-        
-        <div class="avatar-container">
-          <img src="https://cdn5.telesco.pe/file/rfw007WeROohvyL-nsC5wvMQ2Ht1NgxhMkH7i4aR4809jlXV216-epZh5B2SIHxo2t0m8nXKSUrp_H2rsKMu7bqJfdo3MmuZj8S_2OlLRU9w_l-1ck4DfeuutmA_WX35m5pByRhsdDQgLSUCBoUxDlBp7W6xPoqSKQFqCP-QzHjczre8K9ZD5VRFOG0G8z9UuqVVNGTKBoOtF6WiQCBN9zhbCLxDE5N3dsAvbaveYcIJD8s1P4ZGwuwAj29j53hGt1eCcWkLzr7vq9Myy7PteBOTUajdeMx_N_vg2GxKPJTBcBdSchK4xhUI0OyQ3XXpcSI1GMbPjixTmfsv8kxpEA.jpg" 
-               alt="Profile Image" class="avatar-img">
+
+        <div class="identity">
+          <h1>Song Veasna</h1>
+          <p class="role">IT Support Systems and Accounting Specialist</p>
+          <p class="theme-note">Year of the Horse focus: precision, resilience, and prosperous growth.</p>
+
+          <div class="badges">
+            <span class="badge-chip"><i class="bi bi-patch-check-fill"></i> Verified Profile</span>
+            <span class="badge-chip"><i class="bi bi-shield-lock-fill"></i> Secure Contact</span>
+            <span class="badge-chip"><i class="bi bi-trophy-fill"></i> Premium Access</span>
+          </div>
         </div>
-        
-        <div class="text-center">
-          <h1 class="persona-title mb-2">
-            Song Veasna
-            <i class="bi bi-patch-check-fill" style="color: var(--gold-primary);"></i>
-          </h1>
-          <p class="persona-subtitle">IT Support System & Accounting Specialist</p>
-          
-          <!-- Christmas Premium VIP Badge -->
-          <div class="christmas-vip-badge">
-            <i class="bi bi-stars vip-sparkle"></i>
-            🎅 CHRISTMAS VIP 🎄
-            <i class="bi bi-stars vip-sparkle"></i>
-          </div>
-          
-          <div class="badge-container">
-            <span class="status-badge">Active Profile</span>
-            <span class="security-badge">Encrypted Data</span>
-            <span class="gold-badge">🎁 Exclusive Access</span>
-          </div>
+
+        <div class="hero-actions">
+          <a class="action-btn primary" href="mailto:veasnag8@gmail.com"><i class="bi bi-envelope-fill"></i> Email</a>
+          <a class="action-btn secondary" href="https://t.me/oppasna" target="_blank" rel="noopener noreferrer"><i class="bi bi-telegram"></i> Telegram</a>
         </div>
       </div>
-      
-      <!-- BODY SECTION -->
-      <div class="p-4">
-        
-        <!-- Premium Features -->
-        <div class="premium-features">
-          <div class="premium-feature">
-            <i class="bi bi-lightning-charge-fill"></i>
-            ⚡ Priority Support
-          </div>
-          <div class="premium-feature">
-            <i class="bi bi-unlock-fill"></i>
-            🎄 All Features Unlocked
-          </div>
-          <div class="premium-feature">
-            <i class="bi bi-shield-check"></i>
-            🛡️ Enhanced Security
-          </div>
-          <div class="premium-feature">
-            <i class="bi bi-rocket-takeoff-fill"></i>
-            🚀 Early Access
-          </div>
-        </div>
-        
-        <!-- PERSONAL INFORMATION SECTION -->
-        <div class="mb-5">
-          <h3 class="section-title">
-            <i class="bi bi-person-badge"></i> Personal Information
-          </h3>
-          
-          <div class="info-grid">
-            <div class="info-item">
-              <div class="info-label">
-                <i class="bi bi-gem"></i>
-                Persona ID
-              </div>
-              <div class="info-value">
-                <div class="christmas-vip-badge" style="padding: 8px 16px; font-size: 1rem; display: inline-flex;">
-                  <i class="bi bi-crown-fill"></i>
-                  🎅 Christmas VIP
-                  <i class="bi bi-crown-fill"></i>
-                </div>
-              </div>
-            </div>
-            
-            <div class="info-item">
-              <div class="info-label">
-                <i class="bi bi-person-fill"></i>
-                Full Name
-              </div>
-              <div class="info-value">Song Veasna</div>
-            </div>
-            
-            <div class="info-item">
-              <div class="info-label">
-                <i class="bi bi-gender-male"></i>
-                Gender
-              </div>
-              <div class="info-value">Male</div>
-            </div>
-            
-            <div class="info-item">
-              <div class="info-label">
-                <i class="bi bi-calendar-event"></i>
-                Date of Birth
-              </div>
-              <div class="info-value christmas-value">🎄 November 20, 2001</div>
-            </div>
-            
-            <div class="info-item">
-              <div class="info-label">
-                <i class="bi bi-globe"></i>
-                Nationality
-              </div>
-              <div class="info-value">Cambodian</div>
-            </div>
-            
-            <div class="info-item">
-              <div class="info-label">
-                <i class="bi bi-geo-alt-fill"></i>
-                Location
-              </div>
-              <div class="info-value">Takeo Province, Cambodia</div>
-            </div>
-          </div>
-        </div>
-        
-        <!-- CONTACT INFORMATION SECTION -->
-        <div class="mb-5">
-          <h3 class="section-title">
-            <i class="bi bi-telephone"></i> Contact Information
-          </h3>
-          
-          <div class="info-grid">
-            <div class="info-item">
-              <div class="info-label">
-                <i class="bi bi-envelope-fill"></i>
-                Primary Email
-              </div>
-              <a href="mailto:veasnag8@gmail.com" class="contact-link info-value">
-                <i class="bi bi-envelope-fill"></i> veasnag8@gmail.com
-              </a>
-            </div>
-            
-            <div class="info-item">
-              <div class="info-label">
-                <i class="bi bi-telephone-fill"></i>
-                Business Phone
-              </div>
-              <a href="tel:+85577774383" class="contact-link info-value">
-                <i class="bi bi-telephone-fill"></i> +855 77 774 383
-              </a>
-            </div>
-            
-            <div class="info-item">
-              <div class="info-label">
-                <i class="bi bi-telegram"></i>
-                Telegram
-              </div>
-              <a href="https://t.me/oppasna" target="_blank" class="contact-link info-value">
-                <i class="bi bi-telegram"></i> @oppasna
-              </a>
-            </div>
-            
-            <div class="info-item">
-              <div class="info-label">
-                <i class="bi bi-chat-dots-fill"></i>
-                Contact Status
-              </div>
-              <div class="info-value">
-                <span class="text-success">
-                  <i class="bi bi-check-circle-fill"></i> 🎁 Available for Opportunities
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <!-- PROFESSIONAL SUMMARY SECTION -->
-        <div class="mb-5">
-          <h3 class="section-title">
-            <i class="bi bi-file-earmark-text"></i> Professional Summary
-          </h3>
-          
-          <div class="experience-item">
-            <p class="mb-0">
-              🎄 Experienced IT professional with dual expertise in system support and accounting operations. 
-              Proven ability to manage ERP systems, troubleshoot complex technical issues, and optimize 
-              AP/AR processes. Skilled in system configuration, user support, and implementing technology 
-              solutions in banking and enterprise environments. Combines technical proficiency with 
-              financial acumen to deliver integrated business solutions.
-            </p>
-          </div>
-        </div>
-        
-        <!-- SKILLS & TECHNOLOGIES SECTION -->
-        <div class="mb-5">
-          <h3 class="section-title">
-            <i class="bi bi-tools"></i> Skills & Technologies
-          </h3>
-          
-          <div class="skill-category">
-            <div class="category-title">
-              <i class="bi bi-code-slash"></i>
-              Programming Languages
-            </div>
-            <div class="skill-tags">
-              <span class="skill-tag gold">Python 🐍</span>
-              <span class="skill-tag highlight">JavaScript ⚡</span>
-              <span class="skill-tag">PHP</span>
-              <span class="skill-tag">Dart</span>
-            </div>
-          </div>
-          
-          <div class="skill-category">
-            <div class="category-title">
-              <i class="bi bi-globe"></i>
-              Web Development
-            </div>
-            <div class="skill-tags">
-              <span class="skill-tag">HTML5</span>
-              <span class="skill-tag">CSS3</span>
-              <span class="skill-tag gold">Vue.js 🎯</span>
-              <span class="skill-tag">Nuxt.js</span>
-              <span class="skill-tag">Laravel</span>
-            </div>
-          </div>
-          
-          <div class="skill-category">
-            <div class="category-title">
-              <i class="bi bi-hdd-stack"></i>
-              Systems & Infrastructure
-            </div>
-            <div class="skill-tags">
-              <span class="skill-tag gold">Linux Administration 🐧</span>
-              <span class="skill-tag">Kali Linux</span>
-              <span class="skill-tag highlight">ERP Systems 📊</span>
-              <span class="skill-tag">System Configuration</span>
-            </div>
-          </div>
-          
-          <div class="skill-category">
-            <div class="category-title">
-              <i class="bi bi-database"></i>
-              Database & Mobile
-            </div>
-            <div class="skill-tags">
-              <span class="skill-tag">MySQL</span>
-              <span class="skill-tag gold">Flutter 📱</span>
-              <span class="skill-tag">Database Management</span>
-            </div>
-          </div>
-          
-          <div class="skill-category">
-            <div class="category-title">
-              <i class="bi bi-calculator"></i>
-              Accounting & Business
-            </div>
-            <div class="skill-tags">
-              <span class="skill-tag highlight christmas">Accounting Operations 💰</span>
-              <span class="skill-tag">AP/AR Processes</span>
-              <span class="skill-tag gold">Financial Systems 📈</span>
-              <span class="skill-tag highlight">Banking Support 🏦</span>
-            </div>
-          </div>
-        </div>
-        
-        <!-- PROFESSIONAL EXPERIENCE SECTION -->
-        <div class="mb-4">
-          <h3 class="section-title">
-            <i class="bi bi-briefcase"></i> Professional Focus Areas
-          </h3>
-          
-          <div class="experience-item">
-            <div class="experience-title">🎯 IT System Support</div>
-            <p class="experience-desc">
-              Providing comprehensive technical support for enterprise systems, troubleshooting hardware 
-              and software issues, and maintaining system integrity across organizational infrastructure.
-            </p>
-          </div>
-          
-          <div class="experience-item">
-            <div class="experience-title">📊 ERP System Management</div>
-            <p class="experience-desc">
-              Configuring, maintaining, and optimizing ERP systems to streamline business processes, 
-              enhance data accuracy, and improve operational efficiency.
-            </p>
-          </div>
-          
-          <div class="experience-item">
-            <div class="experience-title">💰 Accounting Operations</div>
-            <p class="experience-desc">
-              Managing accounts payable/receivable processes, ensuring financial compliance, and 
-              integrating accounting systems with technical infrastructure.
-            </p>
-          </div>
-          
-          <div class="experience-item">
-            <div class="experience-title">👨‍💻 User Support & Training</div>
-            <p class="experience-desc">
-              Supporting end-users in banking and enterprise environments, providing training on 
-              system usage, and creating documentation for technical processes.
-            </p>
-          </div>
-        </div>
-        
+
+      <div class="premium-strip">
+        <span class="premium-item"><i class="bi bi-lightning-charge-fill"></i> Priority Support</span>
+        <span class="premium-item"><i class="bi bi-diagram-3-fill"></i> ERP Optimization</span>
+        <span class="premium-item"><i class="bi bi-cash-coin"></i> AP/AR Operations</span>
+        <span class="premium-item"><i class="bi bi-journal-check"></i> User Training</span>
       </div>
-      
-      <!-- FOOTER SECTION -->
-      <div class="profile-footer">
-        <p class="mb-2">
-          <i class="bi bi-shield-check"></i> Secure Persona Profile • 
-          <i class="bi bi-robot"></i> Telegram Mini App • 
-          <i class="bi bi-clock-history"></i> Last Updated: December 2025
+    </section>
+
+    <section class="grid">
+      <article class="panel">
+        <h2 class="panel-title"><i class="bi bi-person-vcard-fill"></i> Personal Snapshot</h2>
+        <div class="rows">
+          <div class="row-item">
+            <span class="key">Full Name</span>
+            <span class="value">Song Veasna</span>
+          </div>
+          <div class="row-item">
+            <span class="key">Gender</span>
+            <span class="value">Male</span>
+          </div>
+          <div class="row-item">
+            <span class="key">Date of Birth</span>
+            <span class="value">November 20, 2001</span>
+          </div>
+          <div class="row-item">
+            <span class="key">Nationality</span>
+            <span class="value">Cambodian</span>
+          </div>
+          <div class="row-item">
+            <span class="key">Location</span>
+            <span class="value">Takeo Province, Cambodia</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="panel">
+        <h2 class="panel-title"><i class="bi bi-headset"></i> Contact Channels</h2>
+        <div class="rows">
+          <div class="row-item">
+            <span class="key">Primary Email</span>
+            <span class="value"><a href="mailto:veasnag8@gmail.com">veasnag8@gmail.com</a></span>
+          </div>
+          <div class="row-item">
+            <span class="key">Business Phone</span>
+            <span class="value"><a href="tel:+85577774383">+855 77 774 383</a></span>
+          </div>
+          <div class="row-item">
+            <span class="key">Telegram</span>
+            <span class="value"><a href="https://t.me/oppasna" target="_blank" rel="noopener noreferrer">@oppasna</a></span>
+          </div>
+          <div class="row-item">
+            <span class="key">Availability</span>
+            <span class="value">Open for IT support and systems optimization opportunities</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="panel wide">
+        <h2 class="panel-title"><i class="bi bi-file-earmark-richtext-fill"></i> Professional Summary</h2>
+        <p class="summary">
+          Experienced IT professional with dual expertise in system support and accounting operations.
+          Proven track record in ERP administration, troubleshooting complex technical issues, and improving
+          AP/AR workflows. Strong in system configuration, user enablement, and practical delivery inside
+          banking and enterprise environments.
         </p>
-        <p class="mb-0 small">
-          🎄 Wishing you a Merry Christmas and a Prosperous New Year 2026! 🎅
-        </p>
-      </div>
-      
-    </div>
-  </div>
+      </article>
 
-  <!-- Telegram Bot Configuration Script -->
+      <article class="panel wide">
+        <h2 class="panel-title"><i class="bi bi-grid-3x3-gap-fill"></i> Skills and Technologies</h2>
+        <div class="skills-layout">
+          <section class="skill-group">
+            <h4>Programming</h4>
+            <div class="chips">
+              <span class="chip">Python</span>
+              <span class="chip">JavaScript</span>
+              <span class="chip">PHP</span>
+              <span class="chip">Dart</span>
+            </div>
+          </section>
+
+          <section class="skill-group">
+            <h4>Web Stack</h4>
+            <div class="chips">
+              <span class="chip">HTML5</span>
+              <span class="chip">CSS3</span>
+              <span class="chip">Vue.js</span>
+              <span class="chip">Nuxt.js</span>
+              <span class="chip">Laravel</span>
+            </div>
+          </section>
+
+          <section class="skill-group">
+            <h4>Systems and Infra</h4>
+            <div class="chips">
+              <span class="chip">Linux Administration</span>
+              <span class="chip">Kali Linux</span>
+              <span class="chip">ERP Systems</span>
+              <span class="chip">System Configuration</span>
+            </div>
+          </section>
+
+          <section class="skill-group">
+            <h4>Database and Business</h4>
+            <div class="chips">
+              <span class="chip">MySQL</span>
+              <span class="chip">Flutter</span>
+              <span class="chip">Accounting Operations</span>
+              <span class="chip">Financial Systems</span>
+              <span class="chip">Banking Support</span>
+            </div>
+          </section>
+        </div>
+      </article>
+
+      <article class="panel wide">
+        <h2 class="panel-title"><i class="bi bi-briefcase-fill"></i> Professional Focus Areas</h2>
+        <div class="focus-layout">
+          <div class="focus-card">
+            <h5>IT System Support</h5>
+            <p>End-to-end technical support for enterprise systems with fast issue diagnosis and stable operational continuity.</p>
+          </div>
+
+          <div class="focus-card">
+            <h5>ERP System Management</h5>
+            <p>Configuration, maintenance, and process optimization to improve accuracy, reliability, and workflow efficiency.</p>
+          </div>
+
+          <div class="focus-card">
+            <h5>Accounting Operations</h5>
+            <p>AP/AR process control, financial compliance support, and seamless integration with business systems.</p>
+          </div>
+
+          <div class="focus-card">
+            <h5>User Support and Training</h5>
+            <p>Structured onboarding, practical training, and clear documentation for banking and enterprise users.</p>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <footer class="footer">
+      <span><i class="bi bi-stars"></i> Happy Chinese New Year 2026 | Premium Persona Profile</span>
+      <span><strong>Last Updated:</strong> <time id="lastUpdated" datetime="2026-02-11">February 11, 2026</time></span>
+    </footer>
+  </main>
+
   <script>
-    // Telegram Bot Configuration
-    const BOT_TOKEN = '7821831927:AAHyuidarem0J8sUYq9HKqJ7CxzSf7MZe3g';
-    const BOT_USERNAME = 'GroupManagementCVABot';
-    const WEB_APP_URL = window.location.href;
-    const DEEP_LINK = `https://t.me/${BOT_USERNAME}?startapp=profile`;
-    
-    // DOM Elements
-    const telegramLoading = document.getElementById('telegramLoading');
-    const loadingText = document.getElementById('loadingText');
-    const launchContainer = document.getElementById('launchContainer');
-    const launchBtn = document.getElementById('launchBtn');
-    const telegramControls = document.getElementById('telegramControls');
-    const shareBtn = document.getElementById('shareBtn');
-    const closeBtn = document.getElementById('closeBtn');
-    
-    // Initialize Telegram Web App
-    function initializeTelegramWebApp() {
-      const tg = window.Telegram?.WebApp;
-      
-      if (tg && tg.initDataUnsafe) {
-        // Running in Telegram Web App
-        console.log('✅ Running in Telegram Web App');
-        console.log('Bot Token:', BOT_TOKEN);
-        console.log('Bot Username:', BOT_USERNAME);
-        
-        // Initialize Telegram Web App
-        tg.ready();
-        tg.expand(); // Expand to full screen
-        tg.enableClosingConfirmation(); // Ask before closing
-        
-        // Set theme colors
-        if (tg.colorScheme === 'dark') {
-          document.documentElement.style.setProperty('--light-bg', '#1a1a1a');
-          document.documentElement.style.setProperty('--card-shadow', '0 4px 12px rgba(0, 0, 0, 0.3)');
-          document.body.style.background = 'linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%)';
-        }
-        
-        // Show Telegram controls
-        telegramControls.style.display = 'flex';
-        
-        // Handle Back Button
-        tg.BackButton.show();
-        tg.BackButton.onClick(() => {
-          tg.close();
-        });
-        
-        // Get user data
-        const user = tg.initDataUnsafe.user;
-        if (user) {
-          console.log('👤 Telegram User:', user);
-          // Personalize loading text
-          loadingText.textContent = `Welcome ${user.first_name}! Loading your Premium Profile...`;
-          
-          // Update profile with user info (optional)
-          // document.getElementById('userName').textContent = user.first_name + ' ' + (user.last_name || '');
-        }
-        
-        // Hide loading screen after Telegram init
-        setTimeout(() => {
-          telegramLoading.classList.add('hidden');
-          // Initialize Christmas effects
-          createSnowflakes();
-          createChristmasLights();
-          
-          // Show confetti for first-time load
-          createConfetti();
-        }, 1500);
-        
-        return tg;
-      } else {
-        // Not running in Telegram
-        console.log('❌ Not running in Telegram Web App');
-        console.log('Use this deep link to open in Telegram:', DEEP_LINK);
-        
-        // Show launch button
-        telegramLoading.classList.add('hidden');
-        launchContainer.style.display = 'block';
-        
-        // Initialize Christmas effects
-        createSnowflakes();
-        createChristmasLights();
-        
-        return null;
-      }
+    const lastUpdated = document.getElementById("lastUpdated");
+    if (lastUpdated) {
+      const now = new Date();
+      lastUpdated.textContent = now.toLocaleDateString("en-US", {
+        year: "numeric",
+        month: "long",
+        day: "numeric"
+      });
+      lastUpdated.setAttribute("datetime", now.toISOString().slice(0, 10));
     }
-    
-    // Create snowflakes
-    function createSnowflakes() {
-      const snowContainer = document.getElementById('snowContainer');
-      const snowflakeCount = 80;
-      
-      for (let i = 0; i < snowflakeCount; i++) {
-        const snowflake = document.createElement('div');
-        snowflake.classList.add('snowflake');
-        
-        // Random size
-        const size = Math.random() * 3;
-        if (size < 1) {
-          snowflake.classList.add('small');
-        } else if (size < 2) {
-          snowflake.classList.add('medium');
-        } else {
-          snowflake.classList.add('large');
-        }
-        
-        // Random position
-        snowflake.style.left = Math.random() * 100 + 'vw';
-        
-        // Random animation
-        const duration = Math.random() * 5 + 3;
-        const delay = Math.random() * 5;
-        snowflake.style.animationDuration = duration + 's';
-        snowflake.style.animationDelay = delay + 's';
-        
-        // Random opacity
-        snowflake.style.opacity = Math.random() * 0.6 + 0.3;
-        
-        snowContainer.appendChild(snowflake);
-      }
-    }
-    
-    // Create Christmas lights
-    function createChristmasLights() {
-      const lightsContainer = document.getElementById('christmasLights');
-      const lightColors = ['#C41E3A', '#2E8B57', '#FFD700', '#0088cc', '#FF6B6B', '#4ECDC4'];
-      const lightCount = 20;
-      
-      for (let i = 0; i < lightCount; i++) {
-        const light = document.createElement('div');
-        light.classList.add('light');
-        
-        // Random position
-        light.style.left = (i / lightCount * 100) + '%';
-        
-        // Random color
-        const color = lightColors[Math.floor(Math.random() * lightColors.length)];
-        light.style.backgroundColor = color;
-        light.style.boxShadow = `0 0 10px ${color}`;
-        
-        // Random animation delay
-        light.style.animationDelay = (Math.random() * 2) + 's';
-        
-        lightsContainer.appendChild(light);
-      }
-    }
-    
-    // Create confetti effect
-    function createConfetti() {
-      const colors = ['#C41E3A', '#2E8B57', '#FFD700', '#FF6B6B', '#4ECDC4', '#0088cc'];
-      
-      for (let i = 0; i < 50; i++) {
-        const confetti = document.createElement('div');
-        confetti.style.position = 'fixed';
-        confetti.style.width = '10px';
-        confetti.style.height = '10px';
-        confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-        confetti.style.borderRadius = '50%';
-        confetti.style.zIndex = '9999';
-        confetti.style.left = Math.random() * 100 + 'vw';
-        confetti.style.top = '-20px';
-        confetti.style.opacity = '0.8';
-        
-        document.body.appendChild(confetti);
-        
-        // Animate confetti
-        const animation = confetti.animate([
-          { transform: 'translateY(0) rotate(0deg)', opacity: 0.8 },
-          { transform: `translateY(${window.innerHeight}px) rotate(${Math.random() * 360}deg)`, opacity: 0 }
-        ], {
-          duration: Math.random() * 2000 + 1000,
-          easing: 'cubic-bezier(0.215, 0.610, 0.355, 1)'
-        });
-        
-        animation.onfinish = () => confetti.remove();
-      }
-    }
-    
-    // Share profile function
-    function shareProfile() {
-      const tg = window.Telegram?.WebApp;
-      if (tg) {
-        tg.shareUrl(
-          WEB_APP_URL,
-          '🎄 Check out my Premium Christmas Persona Profile! 🎅',
-          (success) => {
-            if (success) {
-              console.log('✅ Profile shared successfully');
-            }
-          }
-        );
-      } else {
-        // Fallback for non-Telegram browsers
-        if (navigator.share) {
-          navigator.share({
-            title: '🎄 Premium Christmas Persona Profile',
-            text: 'Check out my Premium Christmas Persona Profile! 🎅',
-            url: WEB_APP_URL
-          });
-        } else {
-          // Copy to clipboard
-          navigator.clipboard.writeText(WEB_APP_URL).then(() => {
-            alert('📋 Link copied to clipboard!');
-          });
-        }
-      }
-    }
-    
-    // Close Web App
-    function closeWebApp() {
-      const tg = window.Telegram?.WebApp;
-      if (tg) {
-        tg.close();
-      }
-    }
-    
-    // Setup Bot Menu Button (Call this from your server)
-    async function setupBotMenuButton() {
-      try {
-        const response = await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/setChatMenuButton`, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            menu_button: {
-              type: 'web_app',
-              text: '🎄 Open Profile',
-              web_app: {
-                url: WEB_APP_URL
-              }
-            }
-          })
-        });
-        
-        const data = await response.json();
-        console.log('Bot menu button setup:', data);
-        return data.ok;
-      } catch (error) {
-        console.error('Error setting up bot menu:', error);
-        return false;
-      }
-    }
-    
-    // Initialize when page loads
-    document.addEventListener('DOMContentLoaded', () => {
-      // Initialize Telegram Web App
-      const tg = initializeTelegramWebApp();
-      
-      // Setup event listeners
-      if (launchBtn) {
-        launchBtn.addEventListener('click', () => {
-          window.open(DEEP_LINK, '_blank');
-        });
-      }
-      
-      if (shareBtn) {
-        shareBtn.addEventListener('click', shareProfile);
-      }
-      
-      if (closeBtn) {
-        closeBtn.addEventListener('click', closeWebApp);
-      }
-      
-      // Add Christmas jingle on VIP badge hover
-      const vipBadge = document.querySelector('.christmas-vip-badge');
-      if (vipBadge) {
-        vipBadge.addEventListener('mouseenter', function() {
-          this.style.transform = 'scale(1.05)';
-          this.style.filter = 'brightness(1.2)';
-          
-          // Play jingle sound
-          playChristmasJingle();
-        });
-        
-        vipBadge.addEventListener('mouseleave', function() {
-          this.style.transform = 'scale(1)';
-          this.style.filter = 'brightness(1)';
-        });
-      }
-      
-      // Setup bot menu button (uncomment when deploying)
-      // setupBotMenuButton().then(success => {
-      //   console.log('Bot menu setup:', success ? '✅ Success' : '❌ Failed');
-      // });
-    });
-    
-    // Christmas jingle sound
-    function playChristmasJingle() {
-      try {
-        const audioContext = new (window.AudioContext || window.webkitAudioContext)();
-        const times = [0, 0.3, 0.6, 0.9];
-        const frequencies = [659.25, 659.25, 659.25, 523.25]; // E5, E5, E5, C5
-        
-        times.forEach((time, index) => {
-          const oscillator = audioContext.createOscillator();
-          const gainNode = audioContext.createGain();
-          
-          oscillator.connect(gainNode);
-          gainNode.connect(audioContext.destination);
-          
-          oscillator.frequency.value = frequencies[index];
-          oscillator.type = 'sine';
-          
-          gainNode.gain.setValueAtTime(0.3, audioContext.currentTime + time);
-          gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + time + 0.3);
-          
-          oscillator.start(audioContext.currentTime + time);
-          oscillator.stop(audioContext.currentTime + time + 0.3);
-        });
-      } catch (e) {
-        console.log('Audio not supported');
-      }
-    }
-    
-    // Bot API Helper Functions
-    window.TelegramBotAPI = {
-      token: BOT_TOKEN,
-      username: BOT_USERNAME,
-      
-      // Send message to user
-      async sendMessage(chatId, text, options = {}) {
-        try {
-          const response = await fetch(`https://api.telegram.org/bot${this.token}/sendMessage`, {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-              chat_id: chatId,
-              text: text,
-              parse_mode: 'HTML',
-              ...options
-            })
-          });
-          return await response.json();
-        } catch (error) {
-          console.error('Error sending message:', error);
-          return null;
-        }
-      },
-      
-      // Get bot info
-      async getMe() {
-        try {
-          const response = await fetch(`https://api.telegram.org/bot${this.token}/getMe`);
-          return await response.json();
-        } catch (error) {
-          console.error('Error getting bot info:', error);
-          return null;
-        }
-      }
-    };
-    
-    // Log bot info on startup
-    window.TelegramBotAPI.getMe().then(data => {
-      if (data?.ok) {
-        console.log('🤖 Bot Info:', data.result);
-      }
-    });
   </script>
-
-  <!-- Deployment Instructions Comment -->
-  <!-- 
-    DEPLOYMENT INSTRUCTIONS:
-    
-    1. Save this file as "index.html" or "profile.html"
-    
-    2. Deploy to a hosting service that supports HTTPS:
-       - GitHub Pages (free)
-       - Netlify (free)
-       - Vercel (free)
-       - Your own server with SSL certificate
-    
-    3. Update WEB_APP_URL in the script above to match your deployed URL
-    
-    4. Configure your Telegram bot:
-       - Open @BotFather in Telegram
-       - Send: /mybots
-       - Select @GroupManagementCVABot
-       - Choose "Bot Settings" → "Menu Button"
-       - Enter your deployed URL (must be HTTPS)
-       - Button text: "🎄 Open Profile"
-    
-    5. Test the bot:
-       - Open Telegram and search for @GroupManagementCVABot
-       - Click "Open App" button in the chat
-       - Or use this deep link: https://t.me/GroupManagementCVABot?startapp=profile
-    
-    6. Share with others:
-       - Share the deep link: https://t.me/GroupManagementCVABot?startapp=profile
-       - Or let them find your bot and click "Open App"
-    
-    BOT TOKEN: 7821831927:AAHyuidarem0J8sUYq9HKqJ7CxzSf7MZe3g
-    KEEP THIS TOKEN SECRET - DO NOT SHARE PUBLICLY!
-  -->
 </body>
-
 </html>
-
-
-
