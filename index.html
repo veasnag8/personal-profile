@@ -8,7 +8,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Noto+Serif+SC:wght@600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Noto+Sans+Khmer:wght@400;600;700&family=Noto+Serif+SC:wght@600;700&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
 
   <style>
@@ -191,6 +191,65 @@
       border-radius: 50%;
       background: radial-gradient(circle, rgba(231, 181, 82, 0.32), rgba(175, 33, 28, 0.09) 60%, transparent 70%);
       pointer-events: none;
+    }
+
+    .angpao-decor {
+      position: absolute;
+      top: 0.85rem;
+      right: 1rem;
+      display: flex;
+      gap: 0.55rem;
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .angpao {
+      width: clamp(44px, 5vw, 58px);
+      aspect-ratio: 2 / 3;
+      border-radius: 10px;
+      background: linear-gradient(160deg, #d1322c 0%, #ae1f1b 60%, #7e1310 100%);
+      border: 2px solid rgba(247, 220, 159, 0.85);
+      box-shadow: 0 8px 18px rgba(127, 23, 20, 0.26);
+      position: relative;
+      transform: rotate(-8deg);
+      animation: angpaoFloat 5.2s ease-in-out infinite;
+    }
+
+    .angpao.right {
+      transform: translateY(8px) rotate(10deg);
+      animation-delay: 0.6s;
+    }
+
+    .angpao::before {
+      content: "";
+      position: absolute;
+      inset: 8px;
+      border-radius: 8px;
+      border: 1px solid rgba(247, 220, 159, 0.28);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), transparent);
+    }
+
+    .angpao::after {
+      content: "福";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      color: var(--gold-soft);
+      font-size: clamp(1.05rem, 2.2vw, 1.4rem);
+      font-family: "Noto Serif SC", serif;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.22);
+    }
+
+    @keyframes angpaoFloat {
+      0%,
+      100% {
+        translate: 0 0;
+      }
+
+      50% {
+        translate: 0 -6px;
+      }
     }
 
     .edition-pill {
@@ -421,6 +480,45 @@
       color: #43281d;
     }
 
+    .wishes-layout {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.85rem;
+    }
+
+    .wish-card {
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(175, 33, 28, 0.14);
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 245, 227, 0.94));
+      padding: 0.88rem;
+    }
+
+    .wish-lang {
+      margin: 0 0 0.45rem;
+      font-size: 0.78rem;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--cny-red-deep);
+      font-weight: 800;
+    }
+
+    .wish-text {
+      margin: 0;
+      font-size: 0.95rem;
+      line-height: 1.65;
+      color: #4a2f23;
+    }
+
+    .wish-card[lang="zh-CN"] .wish-text {
+      font-family: "Noto Serif SC", serif;
+      font-weight: 700;
+    }
+
+    .wish-card[lang="km"] .wish-text {
+      font-family: "Noto Sans Khmer", "Manrope", sans-serif;
+      line-height: 1.8;
+    }
+
     .skills-layout {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -525,6 +623,10 @@
       .panel {
         grid-column: 1 / -1;
       }
+
+      .wishes-layout {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
     }
 
     @media (max-width: 780px) {
@@ -541,12 +643,22 @@
       .focus-layout {
         grid-template-columns: 1fr;
       }
+
+      .wishes-layout {
+        grid-template-columns: 1fr;
+      }
     }
 
     @media (max-width: 560px) {
       .hero-grid {
         grid-template-columns: 1fr;
         text-align: center;
+      }
+
+      .angpao-decor {
+        position: static;
+        justify-content: center;
+        margin: 0 0 0.55rem;
       }
 
       .avatar-frame {
@@ -597,6 +709,10 @@
   <main class="page">
     <section class="hero">
       <span class="edition-pill"><i class="bi bi-stars"></i> Happy Chinese New Year 2026 Premium Edition</span>
+      <div class="angpao-decor" aria-hidden="true">
+        <span class="angpao left"></span>
+        <span class="angpao right"></span>
+      </div>
       <div class="hero-grid">
         <div class="avatar-frame">
           <img
@@ -689,6 +805,26 @@
           AP/AR workflows. Strong in system configuration, user enablement, and practical delivery inside
           banking and enterprise environments.
         </p>
+      </article>
+
+      <article class="panel wide">
+        <h2 class="panel-title"><i class="bi bi-chat-heart-fill"></i> New Year Wishes</h2>
+        <div class="wishes-layout">
+          <section class="wish-card" lang="zh-CN">
+            <h3 class="wish-lang">Chinese</h3>
+            <p class="wish-text">新年快乐，恭喜发财，万事如意！</p>
+          </section>
+
+          <section class="wish-card" lang="en">
+            <h3 class="wish-lang">English</h3>
+            <p class="wish-text">Happy Chinese New Year 2026. Wishing you prosperity, good health, and success in everything you do.</p>
+          </section>
+
+          <section class="wish-card" lang="km">
+            <h3 class="wish-lang">Khmer</h3>
+            <p class="wish-text">សួស្តីឆ្នាំថ្មីចិន ២០២៦! សូមជូនពរឱ្យអ្នក និងក្រុមគ្រួសារ មានសុខភាពល្អ សំណាងល្អ និងជោគជ័យគ្រប់ភារកិច្ច។</p>
+          </section>
+        </div>
       </article>
 
       <article class="panel wide">
