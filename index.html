@@ -3,29 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Premium personal profile with Chinese New Year 2026 design.">
-  <title>Premium Persona Profile | Chinese New Year 2026</title>
+  <meta name="description" content="Premium personal profile with Happy Khmer New Year 2026 design, festival illustration, and a live countdown for April 14 to April 16, 2026.">
+  <title>Premium Persona Profile | Happy Khmer New Year 2026</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Noto+Sans+Khmer:wght@400;600;700&family=Noto+Serif+SC:wght@600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Noto+Sans+Khmer:wght@400;600;700&family=Noto+Serif+Khmer:wght@600;700&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
 
   <style>
     :root {
-      --bg-main: #fff7ec;
-      --bg-soft: #ffe9cc;
+      --bg-main: #f4fbff;
+      --bg-soft: #e5f2ff;
       --panel: rgba(255, 255, 255, 0.9);
-      --text-main: #2f1a13;
-      --text-soft: #745645;
-      --cny-red: #af211c;
-      --cny-red-deep: #7f1714;
-      --gold: #e7b552;
-      --gold-soft: #f7dc9f;
-      --jade: #1f6a52;
-      --line: rgba(175, 33, 28, 0.14);
-      --shadow-main: 0 20px 45px rgba(127, 23, 20, 0.14);
-      --shadow-hover: 0 16px 30px rgba(175, 33, 28, 0.2);
+      --text-main: #18304f;
+      --text-soft: #5b6984;
+      --cny-red: #1f69c7;
+      --cny-red-deep: #173d7a;
+      --gold: #e3a63b;
+      --gold-soft: #ffe5a6;
+      --jade: #19878a;
+      --line: rgba(31, 105, 199, 0.14);
+      --shadow-main: 0 20px 45px rgba(23, 61, 122, 0.14);
+      --shadow-hover: 0 16px 30px rgba(31, 105, 199, 0.2);
       --radius-xl: 26px;
       --radius-lg: 20px;
       --radius-md: 14px;
@@ -47,9 +47,9 @@
       font-family: "Manrope", sans-serif;
       color: var(--text-main);
       background:
-        radial-gradient(circle at 10% 18%, rgba(231, 181, 82, 0.2), transparent 40%),
-        radial-gradient(circle at 90% 10%, rgba(175, 33, 28, 0.16), transparent 42%),
-        linear-gradient(160deg, var(--bg-main) 0%, var(--bg-soft) 48%, #ffe2be 100%);
+        radial-gradient(circle at 10% 18%, rgba(227, 166, 59, 0.22), transparent 40%),
+        radial-gradient(circle at 90% 10%, rgba(31, 105, 199, 0.16), transparent 42%),
+        linear-gradient(160deg, var(--bg-main) 0%, var(--bg-soft) 48%, #fff1cf 100%);
       overflow-x: hidden;
       position: relative;
     }
@@ -60,8 +60,8 @@
       inset: 0;
       pointer-events: none;
       background-image:
-        linear-gradient(rgba(175, 33, 28, 0.05) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(175, 33, 28, 0.05) 1px, transparent 1px);
+        linear-gradient(rgba(31, 105, 199, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(31, 105, 199, 0.05) 1px, transparent 1px);
       background-size: 48px 48px;
       opacity: 0.3;
       z-index: 0;
@@ -78,13 +78,13 @@
     .lantern {
       position: absolute;
       width: 62px;
-      aspect-ratio: 1 / 1.25;
-      border-radius: 50% 50% 44% 44%;
-      background: linear-gradient(180deg, #cd332b 0%, var(--cny-red) 62%, var(--cny-red-deep) 100%);
-      border: 2px solid rgba(247, 220, 159, 0.8);
-      box-shadow: 0 0 24px rgba(231, 181, 82, 0.32);
+      aspect-ratio: 1 / 1.1;
+      border-radius: 42% 58% 54% 46% / 49% 46% 54% 51%;
+      background: linear-gradient(180deg, #7bd7f8 0%, var(--cny-red) 60%, var(--cny-red-deep) 100%);
+      border: 2px solid rgba(255, 229, 166, 0.8);
+      box-shadow: 0 0 24px rgba(227, 166, 59, 0.26);
       animation: lanternFloat linear infinite;
-      opacity: 0.45;
+      opacity: 0.4;
     }
 
     .lantern::before,
@@ -96,19 +96,21 @@
     }
 
     .lantern::before {
-      top: -10px;
-      width: 20px;
-      height: 8px;
+      top: -8px;
+      width: 18px;
+      height: 18px;
       border-radius: 999px;
-      background: linear-gradient(90deg, #d59f3a, #f4d48c, #d59f3a);
+      border: 2px solid rgba(255, 229, 166, 0.9);
+      background: rgba(255, 255, 255, 0.12);
     }
 
     .lantern::after {
-      bottom: -14px;
-      width: 3px;
-      height: 15px;
+      bottom: -11px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
       background: var(--gold);
-      box-shadow: 0 18px 0 0 var(--gold);
+      box-shadow: 0 18px 0 -1px rgba(31, 105, 199, 0.2);
     }
 
     .lantern.l1 {
@@ -171,8 +173,8 @@
 
     .hero {
       background:
-        linear-gradient(125deg, rgba(255, 255, 255, 0.92), rgba(255, 246, 231, 0.94)),
-        linear-gradient(135deg, rgba(175, 33, 28, 0.07), rgba(231, 181, 82, 0.1));
+        linear-gradient(125deg, rgba(255, 255, 255, 0.94), rgba(242, 249, 255, 0.95)),
+        linear-gradient(135deg, rgba(31, 105, 199, 0.07), rgba(227, 166, 59, 0.1));
       border: 1px solid var(--line);
       border-radius: var(--radius-xl);
       box-shadow: var(--shadow-main);
@@ -189,7 +191,7 @@
       width: 220px;
       aspect-ratio: 1;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(231, 181, 82, 0.32), rgba(175, 33, 28, 0.09) 60%, transparent 70%);
+      background: radial-gradient(circle, rgba(227, 166, 59, 0.3), rgba(31, 105, 199, 0.12) 60%, transparent 70%);
       pointer-events: none;
     }
 
@@ -204,12 +206,12 @@
     }
 
     .angpao {
-      width: clamp(44px, 5vw, 58px);
-      aspect-ratio: 2 / 3;
-      border-radius: 10px;
-      background: linear-gradient(160deg, #d1322c 0%, #ae1f1b 60%, #7e1310 100%);
-      border: 2px solid rgba(247, 220, 159, 0.85);
-      box-shadow: 0 8px 18px rgba(127, 23, 20, 0.26);
+      width: clamp(48px, 5vw, 60px);
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, #8ee5ff, var(--cny-red) 58%, var(--cny-red-deep) 100%);
+      border: 2px solid rgba(255, 229, 166, 0.9);
+      box-shadow: 0 8px 18px rgba(23, 61, 122, 0.22);
       position: relative;
       transform: rotate(-8deg);
       animation: angpaoFloat 5.2s ease-in-out infinite;
@@ -223,21 +225,22 @@
     .angpao::before {
       content: "";
       position: absolute;
-      inset: 8px;
-      border-radius: 8px;
-      border: 1px solid rgba(247, 220, 159, 0.28);
+      inset: 7px;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 229, 166, 0.28);
       background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), transparent);
     }
 
     .angpao::after {
-      content: "福";
+      content: "ឆ្នាំ";
       position: absolute;
       left: 50%;
       top: 50%;
       transform: translate(-50%, -50%);
       color: var(--gold-soft);
-      font-size: clamp(1.05rem, 2.2vw, 1.4rem);
-      font-family: "Noto Serif SC", serif;
+      font-size: clamp(0.78rem, 1.8vw, 0.92rem);
+      font-family: "Noto Sans Khmer", "Manrope", sans-serif;
+      font-weight: 700;
       text-shadow: 0 2px 8px rgba(0, 0, 0, 0.22);
     }
 
@@ -256,7 +259,7 @@
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
-      background: linear-gradient(90deg, var(--cny-red), #c73b2f, var(--cny-red));
+      background: linear-gradient(90deg, var(--cny-red-deep), var(--cny-red), var(--gold));
       color: #fff;
       border-radius: 999px;
       padding: 0.42rem 0.95rem;
@@ -264,7 +267,7 @@
       font-weight: 700;
       letter-spacing: 0.04em;
       text-transform: uppercase;
-      box-shadow: 0 8px 20px rgba(175, 33, 28, 0.3);
+      box-shadow: 0 8px 20px rgba(23, 61, 122, 0.24);
       margin-bottom: 0.95rem;
     }
 
@@ -280,8 +283,8 @@
       aspect-ratio: 1;
       border-radius: 50%;
       padding: 4px;
-      background: conic-gradient(from 0deg, #f6dc9d, var(--gold), #a52f25, var(--gold), #f6dc9d);
-      box-shadow: 0 12px 30px rgba(165, 47, 37, 0.23);
+      background: conic-gradient(from 0deg, #ffe5a6, var(--gold), var(--cny-red), #83d8ff, #ffe5a6);
+      box-shadow: 0 12px 30px rgba(23, 61, 122, 0.2);
       flex-shrink: 0;
     }
 
@@ -296,7 +299,7 @@
 
     .identity h1 {
       margin: 0;
-      font-family: "Noto Serif SC", serif;
+      font-family: "Noto Serif Khmer", "Manrope", serif;
       font-size: clamp(1.35rem, 2.6vw, 2.05rem);
       line-height: 1.2;
       letter-spacing: 0.01em;
@@ -338,13 +341,146 @@
       align-items: center;
       gap: 0.4rem;
       background: rgba(255, 255, 255, 0.9);
-      border: 1px solid rgba(175, 33, 28, 0.14);
+      border: 1px solid rgba(31, 105, 199, 0.14);
       border-radius: 999px;
       padding: 0.34rem 0.68rem;
       font-size: 0.8rem;
       font-weight: 700;
       color: var(--cny-red-deep);
       white-space: nowrap;
+    }
+
+    .celebration-layout {
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--line);
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .countdown-card,
+    .festival-image-card {
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(31, 105, 199, 0.14);
+      overflow: hidden;
+      min-height: 100%;
+    }
+
+    .countdown-card {
+      padding: 1rem;
+      background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.94), rgba(232, 244, 255, 0.94)),
+        linear-gradient(135deg, rgba(227, 166, 59, 0.12), rgba(31, 105, 199, 0.08));
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6);
+    }
+
+    .countdown-kicker {
+      margin: 0;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      font-weight: 800;
+      color: var(--cny-red);
+    }
+
+    .countdown-title {
+      margin: 0.35rem 0 0.45rem;
+      font-size: clamp(1.15rem, 2vw, 1.6rem);
+      color: var(--cny-red-deep);
+      font-family: "Noto Serif Khmer", "Manrope", serif;
+      line-height: 1.35;
+    }
+
+    .countdown-status {
+      margin: 0;
+      color: #425474;
+      font-size: 0.92rem;
+      line-height: 1.65;
+    }
+
+    .countdown-grid {
+      margin: 1rem 0;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.75rem;
+    }
+
+    .time-box {
+      padding: 0.85rem 0.65rem;
+      border-radius: var(--radius-md);
+      background: rgba(255, 255, 255, 0.82);
+      border: 1px solid rgba(31, 105, 199, 0.12);
+      text-align: center;
+      box-shadow: 0 10px 20px rgba(23, 61, 122, 0.08);
+    }
+
+    .time-value {
+      display: block;
+      font-size: clamp(1.3rem, 2.8vw, 1.9rem);
+      font-weight: 800;
+      color: var(--cny-red-deep);
+      line-height: 1.1;
+    }
+
+    .time-label {
+      display: block;
+      margin-top: 0.28rem;
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-soft);
+      font-weight: 700;
+    }
+
+    .event-days {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.7rem;
+    }
+
+    .event-day {
+      padding: 0.8rem 0.75rem;
+      border-radius: var(--radius-md);
+      background: rgba(255, 255, 255, 0.78);
+      border: 1px solid rgba(31, 105, 199, 0.1);
+    }
+
+    .event-day strong {
+      display: block;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-soft);
+    }
+
+    .event-day span {
+      display: block;
+      margin-top: 0.22rem;
+      font-size: 0.94rem;
+      font-weight: 700;
+      color: var(--cny-red-deep);
+    }
+
+    .festival-image-card {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(234, 246, 255, 0.95));
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6);
+    }
+
+    .festival-image {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .festival-caption {
+      padding: 0.82rem 1rem 1rem;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--cny-red-deep);
+      text-align: center;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.75), rgba(227, 166, 59, 0.12));
     }
 
     .hero-actions {
@@ -371,13 +507,13 @@
     .action-btn.primary {
       background: linear-gradient(90deg, var(--cny-red-deep), var(--cny-red));
       color: #fff;
-      box-shadow: 0 10px 22px rgba(175, 33, 28, 0.28);
+      box-shadow: 0 10px 22px rgba(23, 61, 122, 0.24);
     }
 
     .action-btn.secondary {
       background: rgba(255, 255, 255, 0.88);
       color: var(--cny-red-deep);
-      border-color: rgba(175, 33, 28, 0.2);
+      border-color: rgba(31, 105, 199, 0.2);
     }
 
     .action-btn:hover {
@@ -395,8 +531,8 @@
     }
 
     .premium-item {
-      background: linear-gradient(90deg, rgba(231, 181, 82, 0.2), rgba(31, 106, 82, 0.12));
-      border: 1px solid rgba(31, 106, 82, 0.15);
+      background: linear-gradient(90deg, rgba(227, 166, 59, 0.2), rgba(25, 135, 138, 0.12));
+      border: 1px solid rgba(25, 135, 138, 0.15);
       border-radius: 999px;
       padding: 0.35rem 0.74rem;
       font-weight: 700;
@@ -455,7 +591,7 @@
       padding: 0.62rem 0.68rem;
       border-radius: var(--radius-sm);
       background: rgba(255, 255, 255, 0.86);
-      border: 1px solid rgba(175, 33, 28, 0.08);
+      border: 1px solid rgba(31, 105, 199, 0.08);
     }
 
     .key {
@@ -487,7 +623,7 @@
       margin: 0;
       font-size: 0.96rem;
       line-height: 1.72;
-      color: #43281d;
+      color: #2b4265;
     }
 
     .wishes-layout {
@@ -498,8 +634,8 @@
 
     .wish-card {
       border-radius: var(--radius-md);
-      border: 1px solid rgba(175, 33, 28, 0.14);
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 245, 227, 0.94));
+      border: 1px solid rgba(31, 105, 199, 0.14);
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(240, 248, 255, 0.94));
       padding: 0.88rem;
     }
 
@@ -516,12 +652,7 @@
       margin: 0;
       font-size: 0.95rem;
       line-height: 1.65;
-      color: #4a2f23;
-    }
-
-    .wish-card[lang="zh-CN"] .wish-text {
-      font-family: "Noto Serif SC", serif;
-      font-weight: 700;
+      color: #35506f;
     }
 
     .wish-card[lang="km"] .wish-text {
@@ -536,7 +667,7 @@
     }
 
     .skill-group {
-      border: 1px solid rgba(175, 33, 28, 0.12);
+      border: 1px solid rgba(31, 105, 199, 0.12);
       border-radius: var(--radius-md);
       padding: 0.85rem;
       background: rgba(255, 255, 255, 0.9);
@@ -561,9 +692,9 @@
       border-radius: 999px;
       font-size: 0.78rem;
       font-weight: 700;
-      background: linear-gradient(95deg, rgba(175, 33, 28, 0.08), rgba(231, 181, 82, 0.12));
-      border: 1px solid rgba(175, 33, 28, 0.12);
-      color: #592d20;
+      background: linear-gradient(95deg, rgba(31, 105, 199, 0.08), rgba(227, 166, 59, 0.12));
+      border: 1px solid rgba(31, 105, 199, 0.12);
+      color: #27466c;
       white-space: nowrap;
     }
 
@@ -575,8 +706,8 @@
 
     .focus-card {
       border-radius: var(--radius-md);
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.94), rgba(255, 244, 225, 0.95));
-      border: 1px solid rgba(175, 33, 28, 0.12);
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.94), rgba(239, 247, 255, 0.95));
+      border: 1px solid rgba(31, 105, 199, 0.12);
       padding: 0.88rem;
       transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
@@ -595,12 +726,12 @@
     .focus-card p {
       margin: 0;
       font-size: 0.88rem;
-      color: #614736;
+      color: #5b6881;
       line-height: 1.6;
     }
 
     .footer {
-      background: linear-gradient(90deg, #87211b, #b82d24, #87211b);
+      background: linear-gradient(90deg, #173d7a, #1f69c7, #173d7a);
       color: #fff;
       border-radius: var(--radius-lg);
       padding: 0.92rem 1rem;
@@ -621,6 +752,10 @@
     @media (max-width: 1024px) {
       .hero-grid {
         grid-template-columns: auto 1fr;
+      }
+
+      .celebration-layout {
+        grid-template-columns: 1fr;
       }
 
       .hero-actions {
@@ -657,6 +792,11 @@
       .wishes-layout {
         grid-template-columns: 1fr;
       }
+
+      .countdown-grid,
+      .event-days {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
     }
 
     @media (max-width: 560px) {
@@ -692,6 +832,11 @@
         justify-content: center;
       }
 
+      .countdown-grid,
+      .event-days {
+        grid-template-columns: 1fr;
+      }
+
       .footer {
         justify-content: center;
         text-align: center;
@@ -718,7 +863,7 @@
 
   <main class="page">
     <section class="hero">
-      <span class="edition-pill"><i class="bi bi-stars"></i> Happy Chinese New Year 2026 Premium Edition</span>
+      <span class="edition-pill"><i class="bi bi-stars"></i> Happy Khmer New Year 2026 Premium Edition</span>
       <div class="angpao-decor" aria-hidden="true">
         <span class="angpao left"></span>
         <span class="angpao right"></span>
@@ -738,12 +883,12 @@
             <i class="bi bi-patch-check-fill name-verify" aria-label="Verified profile" title="Verified profile"></i>
           </h1>
           <p class="role">IT Support Systems and Accounting Specialist</p>
-          <p class="theme-note">Year of the Horse focus: precision, resilience, and prosperous growth.</p>
+          <p class="theme-note">Happy Khmer New Year 2026 celebrates ឆ្នាំមមី from 14 April 2026 to 16 April 2026.</p>
 
           <div class="badges">
             <span class="badge-chip"><i class="bi bi-patch-check-fill"></i> Verified Profile</span>
-            <span class="badge-chip"><i class="bi bi-shield-lock-fill"></i> Secure Contact</span>
-            <span class="badge-chip"><i class="bi bi-trophy-fill"></i> Premium Access</span>
+            <span class="badge-chip"><i class="bi bi-stars"></i> Happy Khmer New Year</span>
+            <span class="badge-chip"><i class="bi bi-calendar-event-fill"></i> ឆ្នាំមមី 2026</span>
           </div>
         </div>
 
@@ -753,11 +898,114 @@
         </div>
       </div>
 
+      <div class="celebration-layout">
+        <section class="countdown-card">
+          <p class="countdown-kicker">Festival Countdown</p>
+          <h2 class="countdown-title">Happy Khmer New Year 2026 | ឆ្នាំមមី</h2>
+          <p class="countdown-status" id="countdownStatus">Countdown to the first day of Khmer New Year on 14 April 2026.</p>
+
+          <div class="countdown-grid" aria-live="polite">
+            <div class="time-box">
+              <span class="time-value" id="countdownDays">00</span>
+              <span class="time-label">Days</span>
+            </div>
+            <div class="time-box">
+              <span class="time-value" id="countdownHours">00</span>
+              <span class="time-label">Hours</span>
+            </div>
+            <div class="time-box">
+              <span class="time-value" id="countdownMinutes">00</span>
+              <span class="time-label">Minutes</span>
+            </div>
+            <div class="time-box">
+              <span class="time-value" id="countdownSeconds">00</span>
+              <span class="time-label">Seconds</span>
+            </div>
+          </div>
+
+          <div class="event-days" aria-label="Khmer New Year 2026 festival dates">
+            <div class="event-day">
+              <strong>Day 1</strong>
+              <span>14 April 2026</span>
+            </div>
+            <div class="event-day">
+              <strong>Day 2</strong>
+              <span>15 April 2026</span>
+            </div>
+            <div class="event-day">
+              <strong>Day 3</strong>
+              <span>16 April 2026</span>
+            </div>
+          </div>
+        </section>
+
+        <figure class="festival-image-card">
+          <svg class="festival-image" viewBox="0 0 520 340" role="img" aria-label="Happy Khmer New Year illustration with temple silhouettes, lotus flowers, and water">
+            <defs>
+              <linearGradient id="festivalSky" x1="0%" x2="100%" y1="0%" y2="100%">
+                <stop offset="0%" stop-color="#eef8ff"></stop>
+                <stop offset="100%" stop-color="#fff0c7"></stop>
+              </linearGradient>
+              <linearGradient id="templeGold" x1="0%" x2="0%" y1="0%" y2="100%">
+                <stop offset="0%" stop-color="#f3c75d"></stop>
+                <stop offset="100%" stop-color="#c8871c"></stop>
+              </linearGradient>
+              <linearGradient id="festivalWater" x1="0%" x2="100%" y1="0%" y2="0%">
+                <stop offset="0%" stop-color="#2b9ce6"></stop>
+                <stop offset="100%" stop-color="#185fb7"></stop>
+              </linearGradient>
+            </defs>
+            <rect width="520" height="340" rx="28" fill="url(#festivalSky)"></rect>
+            <circle cx="420" cy="74" r="36" fill="#ffd56a" opacity="0.95"></circle>
+            <path d="M0 250 C85 225 135 272 218 248 C302 224 364 278 520 236 L520 340 L0 340 Z" fill="#a9dbff" opacity="0.55"></path>
+            <path d="M38 82 L126 56 L214 82" fill="none" stroke="#1f69c7" stroke-width="5" stroke-linecap="round"></path>
+            <path d="M126 56 L126 88" fill="none" stroke="#1f69c7" stroke-width="5" stroke-linecap="round"></path>
+            <path d="M214 82 L214 116" fill="none" stroke="#1f69c7" stroke-width="5" stroke-linecap="round"></path>
+            <path d="M126 88 C152 98 184 96 214 82" fill="none" stroke="#e3a63b" stroke-width="5" stroke-linecap="round"></path>
+            <g transform="translate(120 82)">
+              <rect x="40" y="104" width="200" height="62" rx="8" fill="url(#templeGold)"></rect>
+              <rect x="62" y="78" width="158" height="26" rx="6" fill="#e9b44b"></rect>
+              <rect x="84" y="54" width="112" height="24" rx="6" fill="#f0c96a"></rect>
+              <path d="M78 54 L140 8 L202 54 Z" fill="#d7962c"></path>
+              <path d="M118 54 L150 0 L182 54 Z" fill="#f3ca6b"></path>
+              <rect x="138" y="12" width="24" height="92" rx="5" fill="#f6d783"></rect>
+              <rect x="98" y="104" width="26" height="62" rx="5" fill="#fff4d0"></rect>
+              <rect x="176" y="104" width="26" height="62" rx="5" fill="#fff4d0"></rect>
+              <rect x="136" y="112" width="46" height="54" rx="20" fill="#173d7a"></rect>
+              <circle cx="150" cy="102" r="5" fill="#173d7a"></circle>
+            </g>
+            <g transform="translate(44 236)">
+              <ellipse cx="34" cy="34" rx="20" ry="10" fill="#2fa6d8" opacity="0.28"></ellipse>
+              <path d="M34 34 C18 18 20 0 34 0 C48 0 50 18 34 34 Z" fill="#ff7d91"></path>
+              <path d="M34 34 C8 26 0 8 12 0 C24 -8 34 10 34 34 Z" fill="#ff9bab"></path>
+              <path d="M34 34 C60 26 68 8 56 0 C44 -8 34 10 34 34 Z" fill="#ff9bab"></path>
+              <circle cx="34" cy="20" r="6" fill="#ffd56a"></circle>
+            </g>
+            <g transform="translate(416 236)">
+              <ellipse cx="34" cy="34" rx="20" ry="10" fill="#2fa6d8" opacity="0.28"></ellipse>
+              <path d="M34 34 C18 18 20 0 34 0 C48 0 50 18 34 34 Z" fill="#ff7d91"></path>
+              <path d="M34 34 C8 26 0 8 12 0 C24 -8 34 10 34 34 Z" fill="#ff9bab"></path>
+              <path d="M34 34 C60 26 68 8 56 0 C44 -8 34 10 34 34 Z" fill="#ff9bab"></path>
+              <circle cx="34" cy="20" r="6" fill="#ffd56a"></circle>
+            </g>
+            <path d="M0 284 C96 254 148 314 240 286 C332 258 402 320 520 286 L520 340 L0 340 Z" fill="url(#festivalWater)"></path>
+            <path d="M0 294 C98 264 150 322 240 296 C330 270 404 326 520 294" fill="none" stroke="#dff4ff" stroke-width="8" stroke-linecap="round"></path>
+            <path d="M78 204 C88 188 96 176 108 172" fill="none" stroke="#1f69c7" stroke-width="7" stroke-linecap="round"></path>
+            <path d="M442 204 C432 188 424 176 412 172" fill="none" stroke="#1f69c7" stroke-width="7" stroke-linecap="round"></path>
+            <circle cx="108" cy="170" r="6" fill="#7dd5ff"></circle>
+            <circle cx="412" cy="170" r="6" fill="#7dd5ff"></circle>
+            <text x="260" y="42" text-anchor="middle" fill="#173d7a" font-family="Manrope, sans-serif" font-size="22" font-weight="800">Happy Khmer New Year</text>
+            <text x="260" y="68" text-anchor="middle" fill="#e09a20" font-family="'Noto Sans Khmer', sans-serif" font-size="18" font-weight="700">ឆ្នាំមមី | 14-16 April 2026</text>
+          </svg>
+          <figcaption class="festival-caption">Khmer New Year festival illustration with temple, lotus, and water blessing details.</figcaption>
+        </figure>
+      </div>
+
       <div class="premium-strip">
-        <span class="premium-item"><i class="bi bi-lightning-charge-fill"></i> Priority Support</span>
-        <span class="premium-item"><i class="bi bi-diagram-3-fill"></i> ERP Optimization</span>
-        <span class="premium-item"><i class="bi bi-cash-coin"></i> AP/AR Operations</span>
-        <span class="premium-item"><i class="bi bi-journal-check"></i> User Training</span>
+        <span class="premium-item"><i class="bi bi-calendar-event-fill"></i> 14-16 April 2026</span>
+        <span class="premium-item"><i class="bi bi-brightness-high-fill"></i> ឆ្នាំមមី</span>
+        <span class="premium-item"><i class="bi bi-droplet-half"></i> Three-Day Celebration</span>
+        <span class="premium-item"><i class="bi bi-stars"></i> Peace, Prosperity, Success</span>
       </div>
     </section>
 
@@ -823,19 +1071,19 @@
       <article class="panel wide">
         <h2 class="panel-title"><i class="bi bi-chat-heart-fill"></i> New Year Wishes</h2>
         <div class="wishes-layout">
-          <section class="wish-card" lang="zh-CN">
-            <h3 class="wish-lang">Chinese</h3>
-            <p class="wish-text">新年快乐，恭喜发财，万事如意！</p>
+          <section class="wish-card" lang="km">
+            <h3 class="wish-lang">Khmer Blessing</h3>
+            <p class="wish-text">សួស្តីឆ្នាំថ្មីប្រពៃណីជាតិខ្មែរ ២០២៦! សូមឱ្យឆ្នាំមមី នាំមកនូវសុខសាន្ត សំណាងល្អ និងជោគជ័យគ្រប់ការងារ។</p>
           </section>
 
           <section class="wish-card" lang="en">
             <h3 class="wish-lang">English</h3>
-            <p class="wish-text">Happy Chinese New Year 2026. Wishing you prosperity, good health, and success in everything you do.</p>
+            <p class="wish-text">Happy Khmer New Year 2026. May ឆ្នាំមមី bring peace, prosperity, good health, and success to you and your family.</p>
           </section>
 
-          <section class="wish-card" lang="km">
-            <h3 class="wish-lang">Khmer</h3>
-            <p class="wish-text">សួស្តីឆ្នាំថ្មីចិន ២០២៦! សូមជូនពរឱ្យអ្នក និងក្រុមគ្រួសារ មានសុខភាពល្អ សំណាងល្អ និងជោគជ័យគ្រប់ភារកិច្ច។</p>
+          <section class="wish-card" lang="en">
+            <h3 class="wish-lang">Festival Dates</h3>
+            <p class="wish-text">Khmer New Year 2026 will be celebrated from 14 April 2026 to 16 April 2026, and this page now includes a live countdown to the opening day.</p>
           </section>
         </div>
       </article>
@@ -914,7 +1162,7 @@
     </section>
 
     <footer class="footer">
-      <span><i class="bi bi-stars"></i> Happy Chinese New Year 2026 | Premium Persona Profile</span>
+      <span><i class="bi bi-stars"></i> Happy Khmer New Year 2026 | Premium Persona Profile</span>
       <span><strong>Last Updated:</strong> <time id="lastUpdated" datetime="2026-02-11">February 11, 2026</time></span>
     </footer>
   </main>
@@ -930,6 +1178,54 @@
       });
       lastUpdated.setAttribute("datetime", now.toISOString().slice(0, 10));
     }
+
+    const countdownStatus = document.getElementById("countdownStatus");
+    const countdownParts = {
+      days: document.getElementById("countdownDays"),
+      hours: document.getElementById("countdownHours"),
+      minutes: document.getElementById("countdownMinutes"),
+      seconds: document.getElementById("countdownSeconds")
+    };
+
+    const festivalStart = new Date("2026-04-14T00:00:00+07:00");
+    const festivalEnd = new Date("2026-04-16T23:59:59+07:00");
+
+    const padNumber = (value) => String(value).padStart(2, "0");
+
+    const setCountdownValues = (days, hours, minutes, seconds) => {
+      countdownParts.days.textContent = padNumber(days);
+      countdownParts.hours.textContent = padNumber(hours);
+      countdownParts.minutes.textContent = padNumber(minutes);
+      countdownParts.seconds.textContent = padNumber(seconds);
+    };
+
+    const updateCountdown = () => {
+      const now = new Date();
+      let target = festivalStart;
+
+      if (now >= festivalStart && now <= festivalEnd) {
+        target = festivalEnd;
+        countdownStatus.textContent = "Happy Khmer New Year 2026 is live now. Countdown shows the time remaining until the festival closes on 16 April 2026.";
+      } else if (now > festivalEnd) {
+        countdownStatus.textContent = "Happy Khmer New Year 2026 was celebrated from 14 April 2026 to 16 April 2026.";
+        setCountdownValues(0, 0, 0, 0);
+        return;
+      } else {
+        countdownStatus.textContent = "Countdown to the first day of Khmer New Year on 14 April 2026.";
+      }
+
+      const diff = Math.max(0, target.getTime() - now.getTime());
+      const totalSeconds = Math.floor(diff / 1000);
+      const days = Math.floor(totalSeconds / 86400);
+      const hours = Math.floor((totalSeconds % 86400) / 3600);
+      const minutes = Math.floor((totalSeconds % 3600) / 60);
+      const seconds = totalSeconds % 60;
+
+      setCountdownValues(days, hours, minutes, seconds);
+    };
+
+    updateCountdown();
+    window.setInterval(updateCountdown, 1000);
   </script>
 </body>
 </html>
